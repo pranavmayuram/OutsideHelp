@@ -72,24 +72,16 @@
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
         <div class="mdl-layout__header-row">
-          <img name="img01" src="logo.png" height="150" class="center"/>
+          <img name="img01" src="logo.png" height="75" class="center"/>
         </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__tab-bar mdl-js-ripple-effect">
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
           <a href="#overview" class="mdl-layout__tab is-active">Get Help!</a>
           <a href="#features" class="mdl-layout__tab">About</a>
           <a href="#portal" class="mdl-layout__tab">Volunteer Portal</a>
         </div>
       </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Options</span>
-        <nav class="mdl-navigation">
-          <a href="#overview" class="mdl-navigation__link">Get Help!</a>
-          <a href="#features" class="mdl-navigation__link">About</a>
-          <a href="#portal" class="mdl-navigation__link">Volunteer Portal</a>
-        </nav>
-      </div>
+      
       <main class="mdl-layout__content is-active">
         <div class="mdl-layout__tab-panel" id="features">
           <section class="section--center mdl-grid mdl-grid--no-spacing">

@@ -3265,6 +3265,36 @@ MaterialLayout.prototype.init = function() {
           this.drawerToggleHandler_.bind(this));
     }
 
+    var drawerLinks = this.drawer_.querySelectorAll('.' + this.CssClasses_.DRAWER_LINK);
+    for (var i = 0; i < drawerLinks.length; i++) {
+      new DrawerLinkHandler(drawerLink[i], this)
+    }
+
+    function DrawerLinkHandler(link, layout) {
+      'use strict';
+
+      if (link) {
+        link.addEventListener('click', function(e)) {
+          e.preventDefault();
+          var href = link.href.split('#')[1];
+          var panel = layout.content_.querySelector('#' + href);
+          var panels = layout.content_.querySelectorAll('.' + layout.CssClasses_.PANEL);
+          layout.resetPanelState_(panels);
+          panel.classList.add(layout.CssClasses_.IS_ACTIVE);
+
+          var tabs = layout.tabBar_.querySelectorAll('.' + layout.CssClasses_.TAB);
+          if (tabs) {
+            var tab = layout.tabBar_.querySelector("[href='#"+href+"']");
+            layout.resetTabState_(tabs);
+            tab.classList.add(layout.CssClasses_.IS_ACTIVE);
+          }
+
+          layout.drawerToggleHandler_();
+      });
+    }
+  }
+}
+
     // Initialize tabs, if any.
     if (this.header_ && this.tabBar_) {
       this.element_.classList.add(this.CssClasses_.HAS_TABS);
