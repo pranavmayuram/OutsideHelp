@@ -19,6 +19,7 @@
   <head>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+   <script src="./js/front-end.js"></script>
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
     <!-- Material Design icon font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -107,7 +108,7 @@
 
             <form action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" type="text" id="name" />
+                <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
                 <label class="mdl-textfield__label" for="name">Name...</label>
               </div>
             </form>
@@ -140,6 +141,8 @@
             function showPosition(position) {
                 x.innerHTML="Latitude: " + position.coords.latitude + 
                 "<br>Longitude: " + position.coords.longitude;  
+                $scope.formData.latitude= position.coords.latitude;
+                $scope.formData.longitude = position.coords.longitude; 
             }
             </script>
             <div class="mdl-card__actions mdl-card--border">
