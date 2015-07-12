@@ -55,6 +55,8 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
   $scope.weatherData=[];
   $scope.globalvar={};
   $scope.listOfForms={};
+  $scope.Admincoordinates={};
+  $scope.coordinates={};
 
   socket.on('connection', function(socket){
     socket.emit('test', {data: "this is a test"});
@@ -120,7 +122,9 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
   };
 
   $scope.getAllUsers = function(){
-    $http({method:"GET", url: "/api/admin_getAllUsers", params: $scope.Admincoordinates})
+    $scope.coordinates.latitude= 37.782156690897416;
+    $scope.coordinates.longitude= -122.39508871505272;
+   $http({method:"GET", url: "/api/admin_getAllUsers", params: $scope.coordinates})
       .success(function(data) {
         console.log('List of Users: ' + data);
         $scope.listOfForms = data;
@@ -190,11 +194,11 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
       $scope.formData.longitude = position.coords.longitude;
      } */
 
-    window.onload = function() {
+    /*window.onload = function() {
       //$scope.showPosition();
       $scope.getLocation();
       $scope.getLocationAdmin();
-    };
+    };*/
 
   /*$('help_form').onclick=function(){
 	   socket.emit('Form back', $scope.formData);

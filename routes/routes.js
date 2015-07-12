@@ -58,9 +58,11 @@ var appRouter = function(app, io) {
 				return res.status(400).send(error);
 			}
 			else {
+				console.log(req.query);
 				for (i=0; i<result.length; i ++) {
-					result[i].OutsideHelp.distance = Admin.calculateDistance(params.latitude, params.longitude, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude, 'M');
+					result[i].OutsideHelp.distance = Admin.calculateDistance(37.7821752, -122.3953235, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude, 'M');
 				}
+				console.log("UPDATED: "+JSON.stringify(result[0].OutsideHelp));
 			}
 			res.json(result);
 		});

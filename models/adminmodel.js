@@ -45,12 +45,14 @@ Admin.calculateDistance = function(lat1, lon1, lat2, lon2, unit) {
 };
 
 Admin.getAllUsers = function(callback) {
-    var getQuery = N1qlQuery.fromString('SELECT * FROM '+bucketName+' WHERE type=\"user\" AND helpOnWay = false');
+    var getQuery = N1qlQuery.fromString('SELECT * FROM '+bucketName+' WHERE docType=\"user\" AND helpOnWay = false');
+    console.log(getQuery);
     bucket.query (getQuery, function(error, result) {
         if(error) {
             return callback(error, null);
         }
-        res.json(result);
+        console.log(result);
+        callback(null, result);
     });
 };
 
