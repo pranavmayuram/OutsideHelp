@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+   	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlNluIceOLTzoBsb-9ffNLTXqFNlWnVHw"></script>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Get Current Weather</button>
+<body ng-load="getWeather()">
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Current Weather Information (WeatherUnderground)</h4>
+      </div>
+      <div class="modal-body">
+        <img class = "text-align: center" src = "http://nsullivandesign.com/wp-content/uploads/2014/10/flat_partly-cloudy.jpg" height = "60" width = "60">
+        <p>It is currently 70 degrees</p>
+        <p>There is high humidity so concert-goers are more likely to be dehydrated. Be prepared with water</p>
+        <p>Today's High/Low: 70/59 </p>
+        <p>Precipitation: 0%</p>
+        <p>Humidity: 67%</p>
+        <p>Wind: 17 mph</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+    </body>
+
+  </div>
+</div>
+    <script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see a blank space instead of the map, this
+// is probably because you have denied permission for location sharing.
+
+
+
+
+var map;
+
+function initialize() {
+  var mapOptions = {
+    zoom: 6
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(37.7821582,
+                                       -122.39532469999999);
+
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Paramedic'
+      });
+
+      var pos2 = new google.maps.LatLng(37.7821582,
+                                       -122.40532469999999);
+
+      var infowindow2 = new google.maps.InfoWindow({
+        map: map,
+        position: pos2,
+        content: 'Patient'
+      });
+
+      var latlng = [pos, pos2]
+      var latlngbounds = new google.maps.LatLngBounds();
+      for (var i = 0; i<latlng.length; i++){
+      	latlngbounds.extend(latlng[i]);
+      }
+      map.setCenter(pos);
+      map.fitBounds(latlngbounds);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>

@@ -73,8 +73,14 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <img name="img01" src="logo.png" height="150" class = "center"></a>
+          <img name="img01" src="logo.png" height="75" class = "center"></a>
         </div>
+        <h4> OutsideHelp Dashboard</h4>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--orange">
+          <a href="#overview" class="mdl-layout__tab is-active">Portal</a>
+          <a href="#back" class="mdl-layout__tab">Logout</a>
+        </div>
+
       </header>
       <main class="mdl-layout__content is-active">
         <section class="section--center mdl-grid mdl-shadow--2dp">
@@ -89,43 +95,58 @@
             </thead>
             <tbody>
               <tr ng-repeat="form in listOfForms">
-                <td class="mdl-data-table__cell--non-numeric">{{form.name}}</td>
-                <td>{{form.injuryType}}</td>
-                <td>{{form.description}}</td>
+                <td class="mdl-data-table__cell--non-numeric">Pranav Mayuram</td>
+                <td>Drug Related</td>
+                <td>MARIJUANA</td>
+                <td>657 ft</td>
                <!-- <td>{{form.</td> -->
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--non-numeric">20 ft</td>
-                <td>23</td>
-                <td>395</td>
+                <td class="mdl-data-table__cell--non-numeric">David Kong</td>
+                <td>General First Aid</td>
+                <td>need band aids</td>
+                <td>697 ft</td>
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--non-numeric">50 ft</td>
-                <td>1949</td>
-                <td>596939</td>
+                <td class="mdl-data-table__cell--non-numeric">Michael Mattheakis</td>
+                <td>Alcohol Related</td>
+                <td>had too much to drink lost my wallet</td>
+                <td>835 ft</td>
+                
+
+              </tr>
+              <tr ng-repeat="form in listOfForms">
+                <td class="mdl-data-table__cell--non-numeric">Pdmemdl Lemjkq</td>
+                <td>Alcohol Related</td>
+                <td>Aekn Skrn Den nen de Engkd!</td>
+                <td>1058 ft</td>
+               <!-- <td>{{form.</td> -->
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Stephanie Jones</td>
+                <td>General First Aid</td>
+                <td>bad bug bite</td>
+                <td>1295 ft</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric">Henry Smith</td>
+                <td>Drug Related</td>
+                <td>My friend is loopy + uncoordinated</td>
+                <td>1495 ft</td>
               </tr>
             </tbody>
           </table>
         </div>
         </section>
 
-        <script>
-          function loggingOut() {
-            alert("Logging out...")
-            window.open("index.html","_self")
-          }
-        </script>
 
-        <div class="mdl-layout__tab-panel is-active" id="bye">
-          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="mdl-card__actions mdl-card--border">
-              <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick = "loggingOut()">
-                Log out
-              </button>
-            </div>
-            </script>
-          </section>
-        </div>
+
+        <script>
+        function openModel()
+        {
+
+        }
+        </script>
 
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">
@@ -133,7 +154,7 @@
               Made for OutsideHacks '15
             </div>
           </div>
-          <h99>Made by:David Kong, Pranav Mayuram, Charu Dwivedi </h99>
+          <h99>Made by: David Kong, Pranav Mayuram, Charu Dwivedi </h99>
         </footer>
       </main>
     </div>
