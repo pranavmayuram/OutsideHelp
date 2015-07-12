@@ -258,7 +258,7 @@ html, body {
           flex-direction: column;
 }
 .mdl-demo .toc h4 {
-  font-size: 0.9rem;
+  font-size: 1.3rem;
   margin-top: 0;
 }
 .mdl-demo .toc a {
@@ -289,7 +289,7 @@ html, body {
   margin-bottom: 5px;
 }
 
-.mdl-layout--large-screen-only {
+.mdl-layout {
   background-color:#F58B46;
 }
 
@@ -331,6 +331,7 @@ img.center {
 
 .mdl-layout__tab-bar {
   background-color: #F58B46;
+  padding-bottom: 25px;
 }
 
 .mdl-layout{
