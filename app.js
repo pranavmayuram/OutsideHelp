@@ -19,6 +19,7 @@ app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/public/css'));
+//app.use(express.static(__dirname + '/node_modules/node-forge'));
 //app.use(express.static(__dirname + '/node_modules/uuid'));
 app.use(multer({dest: './uploads/', 
 	onFileUploadStart: function (file) {

@@ -99,6 +99,7 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     var id = generateGuid();
     $scope.formData.userID = id;
     $scope.globalvar.currentUserID = id;
+    console.log("globalvar: " + $scope.globalvar);
     $http({method:"POST", url: "/api/insertUserDoc", data: $scope.formData})
       .success(function(data) {
         console.log('userDoc sent to db');
@@ -115,6 +116,25 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
         console.log(data);
       });
     } , 1500);
+  };
+
+  $scope.checkAdminLogin = function() {
+    //$scope.loginData={"email": "charu.dwivedi@outsidelands.com", "password": "password"};
+    console.log($scope.loginData);
+    $http({method:"GET", url: "/api/admin_loginAuth", params: $scope.loginData})
+      .success(function(data) {
+        console.log('dataBool: ' + data);
+        if (data) {
+          console.log('headed to portal.html');
+          window.open("portal.html","_self");
+        }
+        else {
+          alert("Your username/password combination is incorrect, please try again");;
+        }
+      })
+      .error(function(data) {
+        console.log(data);
+      });
   };
 
   $scope.getLocation = function() {
