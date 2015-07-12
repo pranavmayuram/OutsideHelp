@@ -7,6 +7,9 @@ var methodOverride 	= require('method-override');
 var morgan 			= require('morgan');
 var multer  		= require('multer');
 var fs 				= require('fs');
+var port 			= process.env.PORT || config.couchbase.port;
+var server 			= app.listen(port); 
+var io 				= require('socket.io').listen(server);
 
 // use commands
 app.use(bodyParser.urlencoded({extended:true}));
@@ -14,6 +17,7 @@ app.use(bodyParser.json());
 app.use(morgan('dev'));
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/css'));
 app.use(multer({dest: './uploads/', 
 	onFileUploadStart: function (file) {
 	  console.log(file.originalname + ' is starting ...')
@@ -31,13 +35,11 @@ app.use(multer({dest: './uploads/',
 }));
 
 var cluster = new couchbase.Cluster(config.couchbase.server);
-module.exports.userBucket = cluster.bucket(config.couchbase.bucket);
+module.exports.bucket = cluster.openBucket(config.couchbase.bucket);
 
 var routes = require("./routes/routes.js")(app);
 
-// startup our app at http://localhost:3000
-var port = process.env.PORT || config.couchbase.port;
-app.listen(port);               
+// startup our app at http://localhost:3000              
 
 // inform user of IP                     
 console.log('View Touchbase at localhost:' + config.couchbase.port);

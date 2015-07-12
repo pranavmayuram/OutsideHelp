@@ -56,9 +56,43 @@ user.controller("userController", ['$scope', 'socket', function($scope, socket, 
     });
     
     //insert socket here
-    socket.on('Send weather', function(weather){
+  socket.on('Send weather', function(weather){
 	$scope.weatherData = weather;
     });
+
+    var x = document.getElementById("demo");
+
+    $scope.getLocation = function() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position){
+          $scope.$apply(function(){
+            $scope.formData.latitude = position.coords.latitude;
+            $scope.formData.longitude = position.coords.longitude;
+          });
+        });
+      }
+      else {
+        $scope.position = "no position available, browser does not support";
+      }
+    };
+
+    /*$scope.getLocation = function() {
+      if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+      } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";}
+      }
+    $scope.$showPosition = function(position) {
+      x.innerHTML="Stay put! RockMedicine will meet you at latitude: " + position.coords.latitude + 
+      " and longitude: " + position.coords.longitude; 
+      $scope.formData.latitude =  position.coords.latitude;
+      $scope.formData.longitude = position.coords.longitude;
+     } */
+
+    window.onload = function() {
+      //$scope.showPosition();
+      $scope.getLocation();
+    };
 
   /*$('help_form').onclick=function(){
 	   socket.emit('Form back', $scope.formData);

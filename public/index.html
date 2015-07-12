@@ -69,7 +69,7 @@
     }
     </style>
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -112,7 +112,7 @@
 
             <form action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" type="text" id="name" />
+                <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
                 <label class="mdl-textfield__label" for="name">Name</label>
               </div>
             </form>
@@ -138,27 +138,10 @@
 
             <div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
               <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="10"
-               id="schools" ng-model="formData.description"></textarea>
+               id="schools" ng-model="formData.description" ng-model="formData.description"></textarea>
               <label class="mdl-textfield__label" for="schools">Additional Info.</label>
             </div>
 
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick = "getLocation()">Get Location (Requires Permissions)</button>
-            <p id="demo"></p>
-            <script>
-            var x = document.getElementById("demo");
-
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.watchPosition(showPosition);
-                } else { 
-                    x.innerHTML = "Geolocation is not supported by this browser.";}
-                }
-                
-            function showPosition(position) {
-                x.innerHTML="Stay put! RockMedicine will meet you at latitude: " + position.coords.latitude + 
-                " and longitude: " + position.coords.longitude;  
-            }
-            </script>
             <div class="mdl-card__actions mdl-card--border">
             <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick = "submitInfo()">
               Submit
