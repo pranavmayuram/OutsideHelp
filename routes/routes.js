@@ -46,7 +46,17 @@ var appRouter = function(app, io) {
 	});
 
 	app.get('/api/admin_getAllUsers', function(req, res) {
-		Admin.
+		Admin.getAllUsers (function(err, result) {
+			if(err) {
+				return res.status(400).send(error);
+			}
+			else {
+				for (i=0; i<result.length; i ++) {
+					result[i].OutsideHelp.distance = Admin.calculateDistance(params.latitude, params.longitude, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude, 'M');
+				}
+			}
+			res.json(result);
+		});
 	});
 
 	app.get('/', function(req, res) {

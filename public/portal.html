@@ -69,6 +69,7 @@
   </style>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController" >
+    <span ng-init = "getAllUsers()"> </span>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
@@ -93,24 +94,26 @@
           <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
             <thead>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">Distance</th>
-                <th>Latitude</th>
-                <th>Longitude</th>
+                <th class="mdl-data-table__cell--non-numeric">Name</th>
+                <th>Injury Type</th>
+                <th>Description</th>
+                <th>Distance</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="mdl-data-table__cell--numeric">30 ft</td>
-                <td>25</td>
-                <td>657</td>
+              <tr ng-repeat="form in listOfForms">
+                <td class="mdl-data-table__cell--non-numeric">{{form.name}}</td>
+                <td>{{form.injuryType}}</td>
+                <td>{{form.description}}</td>
+               <!-- <td>{{form.</td> -->
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--numeric">20 ft</td>
+                <td class="mdl-data-table__cell--non-numeric">20 ft</td>
                 <td>23</td>
                 <td>395</td>
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--numeric">50 ft</td>
+                <td class="mdl-data-table__cell--non-numeric">50 ft</td>
                 <td>1949</td>
                 <td>596939</td>
               </tr>

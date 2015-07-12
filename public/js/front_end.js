@@ -54,6 +54,7 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
   $scope.helpData={};
   $scope.weatherData=[];
   $scope.globalvar={};
+  $scope.listOfForms={};
 
   socket.on('connection', function(socket){
     socket.emit('test', {data: "this is a test"});
@@ -117,12 +118,37 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     } , 1500);
   };
 
+  $scope.getAllUsers = function(){
+    $http({method:"GET", url: "/api/admin_getAllUsers", params: $scope.Admincoordinates})
+      .success(function(data) {
+        console.log('List of Users: ' + data);
+        $scope.listOfForms = data;
+      })
+      .error(function(data) {
+        console.log(data);
+      });
+  }
+
   $scope.getLocation = function() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position){
         $scope.$apply(function(){
           $scope.formData.latitude = position.coords.latitude;
           $scope.formData.longitude = position.coords.longitude;
+        });
+      });
+    }
+    else {
+      $scope.position = "no position available, browser does not support";
+    }
+  };
+
+  $scope.getLocationAdmin = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position){
+        $scope.$apply(function(){
+          $scope.Admincoordinates.latitude = position.coords.latitude;
+          $scope.Admincoordinates.longitude = position.coords.longitude;
         });
       });
     }
@@ -147,6 +173,7 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     window.onload = function() {
       //$scope.showPosition();
       $scope.getLocation();
+      $scope.getLocationAdmin();
     };
 
   /*$('help_form').onclick=function(){
