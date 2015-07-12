@@ -74,29 +74,29 @@ Admin.checkOffUser = function(params, callback) {
     });
 };
 
-Admin.createMap = function(lat1, lon1, lat2, lon2) {
-    var watchID = null;
-    var optn {
-        enableHighAccuracy: true,
-        timeout: Infinity,
-        maximumAge, 0
-    };
-    if (navigator.geolocation){
-        navigator.geolocation.watchPosition(success, fail, optn);
-    }
-    else {
-        $("p").html("HTML5 Not Supported");
-        $("button").click(function(){
-            if(watchID){
-                navigator.geolocation.clearWatch(watchID);
-            }
-            watchID = null;
-            return false;
-        });
-    }
-    }
-    }
-}
+// Admin.createMap = function(lat1, lon1, lat2, lon2) {
+//     var watchID = null;
+//     var optn {
+//         enableHighAccuracy: true,
+//         timeout: Infinity,
+//         maximumAge, 0
+//     };
+//     if (navigator.geolocation){
+//         navigator.geolocation.watchPosition(success, fail, optn);
+//     }
+//     else {
+//         $("p").html("HTML5 Not Supported");
+//         $("button").click(function(){
+//             if(watchID){
+//                 navigator.geolocation.clearWatch(watchID);
+//             }
+//             watchID = null;
+//             return false;
+//         });
+//     }
+//     }
+//     }
+// }
 
 
 module.exports = Admin;

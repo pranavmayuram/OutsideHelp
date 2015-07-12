@@ -23,67 +23,63 @@
    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
    <script src="/js/front_end.js"></script>
    <script src="../../material.min.js"></script>
-   <script src="http://requirejs.org/docs/release/2.1.11/minified/require.js"></script>
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
-    <!-- Material Design icon font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OutsideHelp - OutsideLands Medical Help</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OutsideHelp - OutsideLands Medical Help</title>
 
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="OutsideHelp">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
 
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3372DF">
 
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+  -->
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="css/material.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/material.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+  #view-source {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+  }
+  </style>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
+      <header class="mdl-layout__header">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
         <div class="mdl-layout__header-row">
-          <h3>OutsideHelp</h3>
+          <img name="img01" src="logo.png" height="150"></a>
         </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
-        </div>
-        <div class="mdl-layout--large-screen-only mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <div class="mdl-layout--large-screen-only mdl-layout__tab-bar mdl-js-ripple-effect">
           <a href="#overview" class="mdl-layout__tab is-active">Get Help!</a>
           <a href="#features" class="mdl-layout__tab">About</a>
-          <a href="#features" class="mdl-layout__tab">Volunteer Portal</a>
+          <a href="#portal" class="mdl-layout__tab">Volunteer Portal</a>
         </div>
       </header>
       <div class="mdl-layout__drawer">
@@ -91,80 +87,116 @@
         <nav class="mdl-navigation">
           <a href="#overview" class="mdl-navigation__link">Get Help!</a>
           <a href="#features" class="mdl-navigation__link">About</a>
-          <a href="#features" class="mdl-navigation__link">Volunteer Portal</a>
+          <a href="#portal" class="mdl-navigation__link">Volunteer Portal</a>
         </nav>
       </div>
-      <main class="mdl-layout__content">
-      <div class="mdl-layout__tab-panel" id="features">
+      <main class="mdl-layout__content is-active">
+        <div class="mdl-layout__tab-panel" id="features">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
               <h4>Get Help</h4>
-              OutsideHelp connects you with license medical professionals at OutisdeLands. Blurb blurb blurb blurb. Stay Safe!
+              OutsideHelp connects you with license medical professionals at OutisdeLands. Stay Safe!
+              Long Description Here
+              Wow much cool
+              such safe
             </div>
           </section>
         </div>
+
+        <section class="mdl-layout__tab-panel" id="portal">
+          <span>{{formData}}</span>
+          <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text">
+                <h4>Login</h4>
+              </div>
+
+            <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
+                <label class="mdl-textfield__label" for="name">Username</label>
+              </div>
+            </form>
+
+            <form action="#">
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                <input class="mdl-textfield__input" type="password" id="name" ng-model="formData.name"/>
+                <label class="mdl-textfield__label" for="name">Password</label>
+              </div>
+            </form>
+
+            <div class="mdl-card__actions mdl-card--border">
+              <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick = "loggingIn()">
+                Log in
+              </button>
+            </div>
+          </section>
+
+        </section>
+
+        <script>
+          function loggingIn() {
+            alert("Logging in...")
+            window.open("portal.html","_self")
+          }
+        </script>
+
+
         <div class="mdl-layout__tab-panel is-active" id="overview">
-        <span>{{formData}}</span>
+          <div class="mdl-cell mdl-cell--12-col">
+              <h4>Get Help</h4>
+              <div class = "subtext">OutsideHelp connects you with licensed medical professionals at OutisdeLands. Stay Safe! </div>
+          </div>
+          <span>{{formData}}</span>
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
                 <h4>Get Medical Help Now</h4>
               </div>
 
-            <form action="#">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
-                <label class="mdl-textfield__label" for="name">Name</label>
+              <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+                  <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
+                  <label class="mdl-textfield__label" for="name">Name</label>
+                </div>
+              </form>
+
+              <div class="title">
+                  <h0>Injury Type:</h0>
               </div>
-            </form>
 
-            <div class="title">
-                <h0>Injury Type:</h0>
-            </div>
+              <div>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Injury A</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Injury B</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                  <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Misc</span>
+                </label>
+              </div>
 
-            <div>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked ng-model="formData.injuryType" />
-                <span class="mdl-radio__label">Injury A</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" ng-model="formData.injuryType" />
-                <span class="mdl-radio__label">Injury B</span>
-              </label>
-              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3" ng-model="formData.injuryType" />
-                <span class="mdl-radio__label">Misc</span>
-              </label>
-            </div>
+              <div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
+                <textarea class="mdl-textfield__input" type="text" rows="5" maxrows="10"
+                 id="schools" ng-model="formData.description" ng-model="formData.description"></textarea>
+                <label class="mdl-textfield__label" for="schools">Additional Info.</label>
+              </div>
 
-            <div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
-              <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="10"
-               id="schools" ng-model="formData.description" ng-model="formData.description"></textarea>
-              <label class="mdl-textfield__label" for="schools">Additional Info.</label>
-            </div>
+              <div class="mdl-card__actions mdl-card--border">
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "insertUserDoc()">
+                  Submit
+                </button>
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "getWeather()">
+                  Weather Me
+                </button>
+              </div>
 
-            <div class="mdl-card__actions mdl-card--border">
-            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "insertUserDoc()">
-              Submit
-            </button>
-
-            <script>
-            function submitInfo() {
-              alert("Submitted! Stay put!")
-              location.reload()
-            }
-            </script>
-
-
-          </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "getWeather()">
-              Weather
-            </button>
-          </div>
             </div>
           </section>
-
         </div>
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">
@@ -172,6 +204,7 @@
               Made for OutsideHacks '15
             </div>
           </div>
+          <h99>David Kong, Pranav Mayuram, Charu Dwivedi </h99>
         </footer>
       </main>
     </div>

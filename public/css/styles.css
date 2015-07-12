@@ -22,6 +22,11 @@ html, body {
 .mdl-demo .mdl-layout__header-row {
   padding-left: 40px;
   height: 53px;
+  background-color: #FFEDD8;
+}
+
+.mdl-layout__header-row {
+  padding-bottom:75px;
 }
 .mdl-demo .mdl-layout.is-small-screen .mdl-layout__tab-bar-container {
   display: none;
@@ -35,6 +40,11 @@ html, body {
 .mdl-demo .mdl-layout__tab-bar-button {
   display: none;
 }
+
+.mdl-layout__content {
+  background-color: #FFEDD8;
+}
+
 .mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__drawer-button {
   display: none;
 }
@@ -78,7 +88,11 @@ html, body {
   height: auto;
 }
 .mdl-demo .mdl-card .mdl-card__supporting-text {
-  margin: 40px;
+  margin-top: 30px;
+  font-size: 40px;
+  margin-bottom: 0px;
+
+  margin-left: 20px;
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
@@ -266,10 +280,36 @@ html, body {
 }
 
 .mdl-radio {
-  margin-left: 15px;
+  margin-left: 25px;
 }
 
 .title {
-  margin-left: 15px;
+  margin-left: 25px;
   margin-bottom: 5px;
+}
+
+.img01 {
+  height: 50%;
+}
+
+.mdl-layout--large-screen-only {
+  background-color:#F58B46;
+}
+
+.mdl-mega-footer {
+/*    position: fixed;
+    z-index: 100; 
+    bottom: 0; 
+    left: 0;
+    width: 100%;*/
+    background-color:#4B212F;
+}
+
+h4 {
+  text-align: center;
+}
+
+.subtext {
+  text-align: center;
+  font-size: 20px;
 }
