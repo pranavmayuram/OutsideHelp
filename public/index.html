@@ -75,10 +75,10 @@
         <div class="mdl-layout__header-row">
           <img name="img01" src="logo.png" height="75" class="center"/>
         </div>
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--orange">
           <a href="#overview" class="mdl-layout__tab is-active">Get Help!</a>
           <a href="#features" class="mdl-layout__tab">About</a>
-          <a href="#portal" class="mdl-layout__tab">Volunteer Portal</a>
+          <a href="#portal" class="mdl-layout__tab">Medical Login</a>
         </div>
       </header>
       
@@ -86,11 +86,17 @@
         <div class="mdl-layout__tab-panel" id="features">
           <section class="section--center mdl-grid mdl-grid--no-spacing">
             <div class="mdl-cell mdl-cell--12-col">
-              <h4>Get Help</h4>
-              OutsideHelp connects you with license medical professionals at OutisdeLands. Stay Safe!
-              Long Description Here
-              Wow much cool
-              such safe
+              <h4>About</h4>
+              Music festivals are a ton of fun. But being responsible is important as well.
+              <br></br>
+              OutsideHelp is a free service that connects you with licensed medical professionals at OutsideLands.
+              It's completely free and anonymous, and is much more convenient and interactive than a phone call.
+              We'll give you an ETA, and tell you how far off help is. And you won't have to yell over your favorite band either.
+              Instead of looking for help, help will be looking for you.
+              <br></br>
+              Whenever you're not feeling well, get some free and friendly OutsideHelp.
+              <br></br>
+              OutsideHelp was built at OutsideHacks 2015. It makes use of the Weather Underground API, Socket.io, Angular.js, Node.js, CouchDB, and Google Material Design Lite
             </div>
           </section>
         </div>
@@ -129,7 +135,7 @@
         <div class="mdl-layout__tab-panel is-active" id="overview">
           <div class="mdl-cell mdl-cell--12-col">
               <h4>Get Help</h4>
-              <div class = "subtext">OutsideHelp connects you with licensed medical professionals at OutisdeLands. Stay Safe! </div>
+              <div class = "subtext">OutsideHelp is a free service that connects you with licensed medical professionals at OutisdeLands.</div>
           </div>
           <span>{{formData}}</span>
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
@@ -146,28 +152,40 @@
               </form>
 
               <div class="title">
-                  <h0>Injury Type:</h0>
+                <h0>Assistance Required:</h0>
               </div>
 
               <div>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-                  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked ng-model="formData.injuryType" />
-                  <span class="mdl-radio__label">Injury A</span>
+                  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="Dehydration" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Dehydration</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-                  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" ng-model="formData.injuryType" />
-                  <span class="mdl-radio__label">Injury B</span>
+                  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="First-Aid" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">General First Aid</span>
                 </label>
                 <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
-                  <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3" ng-model="formData.injuryType" />
-                  <span class="mdl-radio__label">Misc</span>
+                  <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="Drug" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Drug Related</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-4">
+                  <input type="radio" id="option-4" class="mdl-radio__button" name="options" value="Alcohol" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Alcohol Related</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-5">
+                  <input type="radio" id="option-5" class="mdl-radio__button" name="options" value="Fatal" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Life-Threatening</span>
+                </label>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-6">
+                  <input type="radio" id="option-6" class="mdl-radio__button" name="options" value="Other" ng-model="formData.injuryType" />
+                  <span class="mdl-radio__label">Other</span>
                 </label>
               </div>
 
               <div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
                 <textarea class="mdl-textfield__input" type="text" rows="5" maxrows="10"
                  id="schools" ng-model="formData.description" ng-model="formData.description"></textarea>
-                <label class="mdl-textfield__label" for="schools">Additional Info.</label>
+                <label class="mdl-textfield__label" for="schools">Tell us a bit more</label>
               </div>
 
               <div class="mdl-card__actions mdl-card--border">
@@ -188,7 +206,7 @@
               Made for OutsideHacks '15
             </div>
           </div>
-          <h99>David Kong, Pranav Mayuram, Charu Dwivedi </h99>
+          <h99>Made by: David Kong, Pranav Mayuram, Charu Dwivedi </h99>
         </footer>
       </main>
     </div>

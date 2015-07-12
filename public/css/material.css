@@ -4777,12 +4777,12 @@ ul, ol {
     .mdl-data-table tbody tr:hover {
       background-color: #eeeeee; }
   .mdl-data-table td, .mdl-data-table th {
-    padding: 0 18px 0 18px;
+    padding: 0 35px 0 35px;
     text-align: right; }
     .mdl-data-table td:first-of-type, .mdl-data-table th:first-of-type {
-      padding-left: 24px; }
+      padding-left: 40px; }
     .mdl-data-table td:last-of-type, .mdl-data-table th:last-of-type {
-      padding-right: 24px; }
+      padding-right: 40px; }
   .mdl-data-table td {
     position: relative;
     vertical-align: top;
