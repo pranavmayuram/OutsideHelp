@@ -34,18 +34,35 @@ app.use(multer({dest: './uploads/',
 	}
 }));
 
-io.on('connection', function(socket){
-	console.log('a user connected: '+ socket.id);
-	socket.on('disconnect', function(){
-		console.log( socket.id + ' has disconnected.' + socket.id)
-	});
-
-});
-
 var cluster = new couchbase.Cluster(config.couchbase.server);
 module.exports.bucket = cluster.openBucket(config.couchbase.bucket);
 
 var routes = require("./routes/routes.js")(app);
+
+var User        = require("../models/usermodel");
+var Admin     	= require("../models/adminmodel");
+var Session     = require("../models/sessionmodel");
+var Weather		= require("../models/weathermodel");
+
+io.on('connection', function(socket){
+		console.log('a user connected: '+ socket.id);
+		socket.on('disconnect', function(){
+			console.log( socket.id + ' has disconnected.' + socket.id)
+		});
+
+	});
+
+io.on('User to Back', function(form){
+	var id = form.id;
+	var stuff = form.data;
+	User.create(stuff, id, function(error, result) {
+		if(error) {
+			return res.status(400).send(error);
+		}
+		res.json(result);
+	})
+	console.log('Created user')
+});
 
 // startup our app at http://localhost:3000              
 

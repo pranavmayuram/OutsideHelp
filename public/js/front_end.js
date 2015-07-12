@@ -56,10 +56,10 @@ user.controller("userController", ['$scope', 'socket', '$http', function($scope,
     });
     
     //insert socket here
-  socket.on('Send weather', function(weather){
-	$scope.weatherData = weather;
-    });
-
+  
+  function userToBack(){
+    socket.emit('User to Back', {data: $scope.formData})
+  }
   /*$http({method: "POST", url: "/addUser", data: userInfo})
       .success(function(data) {
         console.log($scope.formData);

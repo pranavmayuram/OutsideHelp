@@ -6,10 +6,10 @@ var N1qlQuery 		= require('couchbase').N1qlQuery;
 
 function User() { };
 
-User.create = function(params, callback) {
+User.create = function(params, socketID, callback) {
 	var currentTime = new Date().toUTCString();	
     var userDoc = {
-    	uuid: uuid.v4(),
+    	userID: socketID,
         name: params.name,
         docType: user,
         injuryType: parms.injuryType,
