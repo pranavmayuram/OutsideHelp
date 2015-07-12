@@ -42,7 +42,9 @@ User.create = function(params, callback) {
 };
 
 User.checkHelp = function(params, callback) {
+    console.log(params);
     var checkHelpQuery = N1qlQuery.fromString('SELECT * from '+bucketName+' WHERE userID = \"'+params.currentUserID+"\" AND docType='user'");
+    console.log(checkHelpQuery);
     bucket.query(checkHelpQuery, function (err, result) {
         if (err) {
             console.log("ERROR IN checkHelp QUERY: ");
@@ -50,10 +52,16 @@ User.checkHelp = function(params, callback) {
             callback(err, null);
             return;
         }
-        //console.log("Result: "+JSON.stringify(result[0].OutsideHelp));
+    if (result.length == 0) {
+        callback(null, "loading");
+    }
+    else {
+        //console.log("Result: "+JSON.stringify(result[0].OutsideHelp));'
+        console.log(result);
         var helpBool = (result[0].OutsideHelp.helpOnWay);
         console.log('helpBool: ' + helpBool);
         callback(null, helpBool);
+    }
         /*else {
             if(OutsideHelp[0].helpOnWay == true) {
                 callback(null, {helpOnWay: true});

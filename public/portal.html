@@ -69,7 +69,6 @@
   </style>
   </head>
   <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController" >
-    <span ng-init = "getAllUsers()"> </span>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row"></div>
@@ -97,14 +96,15 @@
                 <th class="mdl-data-table__cell--non-numeric">Name</th>
                 <th>Injury Type</th>
                 <th>Description</th>
-                <th>Distance</th>
+                <th>Time</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody ng-init = "getAllUsers()">
               <tr ng-repeat="form in listOfForms">
-                <td class="mdl-data-table__cell--non-numeric">{{form.name}}</td>
-                <td>{{form.injuryType}}</td>
-                <td>{{form.description}}</td>
+                <td class="mdl-data-table__cell--non-numeric">{{form.OutsideHelp.name}}</td>
+                <td>{{form.OutsideHelp.injuryType}}</td>
+                <td>{{form.OutsideHelp.description}}</td>
+                <td>{{form.OutsideHelp.timeTracker.postTime}}</td>
                <!-- <td>{{form.</td> -->
               </tr>
               <tr>
@@ -120,6 +120,7 @@
             </tbody>
           </table>
         </div>
+        <span>{{Admincoordinates}}</span>
         </section>
 
         <script>
