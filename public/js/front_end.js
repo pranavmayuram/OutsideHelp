@@ -60,11 +60,11 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
 
   socket.on('connection', function(socket){
     socket.emit('test', {data: "this is a test"});
-	   console.log('a user connected');
+     console.log('a user connected');
 
-	socket.on('disconnect', function(){
-	    console.log('user disconnected');
-	});
+  socket.on('disconnect', function(){
+      console.log('user disconnected');
+  });
     });
     
     //insert socket here
@@ -114,6 +114,10 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     $http({method:"GET", url: "/api/checkHelpOnWay", params: $scope.globalvar})
       .success(function(data) {
         console.log('dataBool: ' + data);
+        if (data === true) {
+          alert('Sit tight, a volunteer is on their way to help you!');
+          $interval.cancel(check);
+        }
       })
       .error(function(data) {
         console.log(data);
@@ -201,11 +205,11 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     };*/
 
   /*$('help_form').onclick=function(){
-	   socket.emit('Form back', $scope.formData);
-	   $('#m').val('');
-	   return false;
+     socket.emit('Form back', $scope.formData);
+     $('#m').val('');
+     return false;
   }*/
-}]);	    
+}]);      
 
 admin.factory('socket', ['$rootScope', function ($rootScope) {
   var socket = io.connect();
@@ -248,21 +252,21 @@ admin.factory('socket', ['$rootScope', function ($rootScope) {
     $scope.weatherData=[];
 
     io.on('connection', function(socket){
-	console.log('a user connected');
-	socket.on('disconnect', function(){
-	    console.log('user disconnected');
-	});
+  console.log('a user connected');
+  socket.on('disconnect', function(){
+      console.log('user disconnected');
+  });
     });
     
     //insert socket here
     io.on('Send weather', function(weather){
-	$scope.weatherData = weather;
+  $scope.weatherData = weather;
     });
 
     $('help_form').onclick=function(){
-	socket.emit('Form back', $scope.formData);
-	$('#m').val('');
-	return false;
+  socket.emit('Form back', $scope.formData);
+  $('#m').val('');
+  return false;
     }
-}]);	    
+}]);      
 */
