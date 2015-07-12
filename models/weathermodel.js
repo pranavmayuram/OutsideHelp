@@ -1,4 +1,4 @@
-var uuid 				= require("uuid");
+//var uuid 				= require("uuid");
 var forge 				= require("node-forge");
 var bucket				= require("../app").bucket;
 var bucketName			= require("../config").couchbase.bucket;
@@ -16,7 +16,7 @@ Weather.receive = function(callback) {
 
 	var finished = false;
 	var currentWeather ={};
-	
+
 	var assignWeather = function() {
 		console.log(currentWeather);
 

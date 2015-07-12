@@ -1,0 +1,131 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose readDependencies loading dependencies from /Users/pranavmayuram/Documents/OutsideHacks/package.json
+5 warn package.json OutsideHelp@0.0.1 No repository field.
+6 warn package.json OutsideHelp@0.0.1 No README data
+7 warn package.json OutsideHelp@0.0.1 No license field.
+8 verbose install where, deps [ '/Users/pranavmayuram/Documents/OutsideHacks',
+8 verbose install   [ 'express',
+8 verbose install     'couchbase',
+8 verbose install     'body-parser',
+8 verbose install     'morgan',
+8 verbose install     'method-override',
+8 verbose install     'node-forge',
+8 verbose install     'node-uuid',
+8 verbose install     'multer',
+8 verbose install     'socket.io',
+8 verbose install     'wundergroundnode' ] ]
+9 verbose install where, peers [ '/Users/pranavmayuram/Documents/OutsideHacks', [] ]
+10 verbose installManyTop reading for lifecycle /Users/pranavmayuram/Documents/OutsideHacks/package.json
+11 info preinstall OutsideHelp@0.0.1
+12 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/body-parser/package.json
+13 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/couchbase/package.json
+14 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/express/package.json
+15 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/method-override/package.json
+16 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/morgan/package.json
+17 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/multer/package.json
+18 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/node-forge/package.json
+19 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/socket.io/package.json
+20 verbose installManyTop reading scoped package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/wundergroundnode/package.json
+21 info package.json couchbase@2.0.9 license should be a valid SPDX license expression
+22 info package.json node-forge@0.6.34 No license field.
+23 info package.json socket.io@1.3.5 No license field.
+24 verbose readDependencies loading dependencies from /Users/pranavmayuram/Documents/OutsideHacks/package.json
+25 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/body-parser/package.json
+26 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/couchbase/package.json
+27 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/express/package.json
+28 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/method-override/package.json
+29 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/morgan/package.json
+30 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/multer/package.json
+31 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/node-forge/package.json
+32 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/socket.io/package.json
+33 verbose targetResolver reading package data from /Users/pranavmayuram/Documents/OutsideHacks/node_modules/wundergroundnode/package.json
+34 verbose already installed skipping method-override@~2.1.2 /Users/pranavmayuram/Documents/OutsideHacks
+35 verbose already installed skipping node-forge@^0.6.30 /Users/pranavmayuram/Documents/OutsideHacks
+36 silly cache add args [ 'node-uuid@^2.0.1', null ]
+37 verbose cache add spec node-uuid@^2.0.1
+38 silly cache add parsed spec { raw: 'node-uuid@^2.0.1',
+38 silly cache add   scope: null,
+38 silly cache add   name: 'node-uuid',
+38 silly cache add   rawSpec: '^2.0.1',
+38 silly cache add   spec: '>=2.0.1 <3.0.0',
+38 silly cache add   type: 'range' }
+39 silly addNamed node-uuid@>=2.0.1 <3.0.0
+40 verbose addNamed ">=2.0.1 <3.0.0" is a valid semver range for node-uuid
+41 silly addNameRange { name: 'node-uuid', range: '>=2.0.1 <3.0.0', hasData: false }
+42 silly mapToRegistry name node-uuid
+43 silly mapToRegistry using default registry
+44 silly mapToRegistry registry https://registry.npmjs.org/
+45 silly mapToRegistry uri https://registry.npmjs.org/node-uuid
+46 verbose addNameRange registry:https://registry.npmjs.org/node-uuid not in flight; fetching
+47 verbose already installed skipping multer@~0.1.8 /Users/pranavmayuram/Documents/OutsideHacks
+48 verbose already installed skipping socket.io@~1.3.5 /Users/pranavmayuram/Documents/OutsideHacks
+49 verbose already installed skipping wundergroundnode@~0.9.0 /Users/pranavmayuram/Documents/OutsideHacks
+50 verbose already installed skipping express@~4.7.2 /Users/pranavmayuram/Documents/OutsideHacks
+51 verbose already installed skipping couchbase@2.0.9 /Users/pranavmayuram/Documents/OutsideHacks
+52 verbose already installed skipping body-parser@~1.5.2 /Users/pranavmayuram/Documents/OutsideHacks
+53 verbose already installed skipping morgan@~1.2.2 /Users/pranavmayuram/Documents/OutsideHacks
+54 verbose request uri https://registry.npmjs.org/node-uuid
+55 verbose request no auth needed
+56 info attempt registry request try #1 at 5:08:28 AM
+57 verbose request id 61e04a47f6348c49
+58 verbose etag "63YHTP34EUHYY35OWD1G5RPRT"
+59 http request GET https://registry.npmjs.org/node-uuid
+60 http 304 https://registry.npmjs.org/node-uuid
+61 silly get cb [ 304,
+61 silly get   { date: 'Sun, 12 Jul 2015 12:08:28 GMT',
+61 silly get     via: '1.1 varnish',
+61 silly get     'cache-control': 'max-age=60',
+61 silly get     etag: '"63YHTP34EUHYY35OWD1G5RPRT"',
+61 silly get     age: '58',
+61 silly get     connection: 'keep-alive',
+61 silly get     'x-served-by': 'cache-sjc3128-SJC',
+61 silly get     'x-cache': 'HIT',
+61 silly get     'x-cache-hits': '395',
+61 silly get     'x-timer': 'S1436702908.319224,VS0,VE0',
+61 silly get     vary: 'Accept' } ]
+62 verbose etag https://registry.npmjs.org/node-uuid from cache
+63 verbose get saving node-uuid to /Users/pranavmayuram/.npm/registry.npmjs.org/node-uuid/.cache.json
+64 silly addNameRange number 2 { name: 'node-uuid', range: '>=2.0.1 <3.0.0', hasData: true }
+65 silly addNameRange versions [ 'node-uuid',
+65 silly addNameRange   [ '1.2.0',
+65 silly addNameRange     '1.3.0',
+65 silly addNameRange     '1.3.1',
+65 silly addNameRange     '1.3.2',
+65 silly addNameRange     '1.1.0',
+65 silly addNameRange     '1.0.0',
+65 silly addNameRange     '1.3.3',
+65 silly addNameRange     '1.4.0',
+65 silly addNameRange     '1.4.1',
+65 silly addNameRange     '1.4.2',
+65 silly addNameRange     '1.4.3' ] ]
+66 verbose stack Error: No compatible version found: node-uuid@'>=2.0.1 <3.0.0'
+66 verbose stack Valid install targets:
+66 verbose stack ["1.2.0","1.3.0","1.3.1","1.3.2","1.1.0","1.0.0","1.3.3","1.4.0","1.4.1","1.4.2","1.4.3"]
+66 verbose stack
+66 verbose stack     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:274:12)
+66 verbose stack     at next (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:253:17)
+66 verbose stack     at setData (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:230:5)
+66 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+66 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+66 verbose stack     at fixName (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+66 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+66 verbose stack     at FSReqWrap.oncomplete (fs.js:95:15)
+67 verbose cwd /Users/pranavmayuram/Documents/OutsideHacks
+68 error Darwin 14.3.0
+69 error argv "node" "/usr/local/bin/npm" "install"
+70 error node v0.12.4
+71 error npm  v2.10.1
+72 error code ETARGET
+73 error notarget No compatible version found: node-uuid@'>=2.0.1 <3.0.0'
+73 error notarget Valid install targets:
+73 error notarget ["1.2.0","1.3.0","1.3.1","1.3.2","1.1.0","1.0.0","1.3.3","1.4.0","1.4.1","1.4.2","1.4.3"]
+73 error notarget
+73 error notarget This is most likely not a problem with npm itself.
+73 error notarget In most cases you or one of your dependencies are requesting
+73 error notarget a package version that doesn't exist.
+73 error notarget
+73 error notarget It was specified as a dependency of 'OutsideHelp'
+74 verbose exit [ 1, true ]

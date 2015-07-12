@@ -7,6 +7,13 @@
 var user = angular.module('user', []);
 var admin = angular.module('admin', []);
 
+var generateGuid = function () {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+};
+
 user.factory('socket', ['$rootScope', function ($rootScope) {
   var socket = io.connect();
 
@@ -39,16 +46,18 @@ user.factory('socket', ['$rootScope', function ($rootScope) {
   };
 }]);
 
-user.controller("userController", ['$scope', 'socket', '$http', function($scope, socket, $http) {
+user.controller("userController", ['$scope', 'socket', '$http', '$interval', function($scope, socket, $http, $interval) {
   var th = this;
-  $scope.formData={text:"hello"};
+  $scope.formData={};
   $scope.loginData={};
   $scope.image={};
   $scope.helpData={};
   $scope.weatherData=[];
+  $scope.globalvar={};
 
   socket.on('connection', function(socket){
-	console.log('a user connected');
+    socket.emit('test', {data: "this is a test"});
+	   console.log('a user connected');
 
 	socket.on('disconnect', function(){
 	    console.log('user disconnected');
@@ -57,9 +66,10 @@ user.controller("userController", ['$scope', 'socket', '$http', function($scope,
     
     //insert socket here
   
-  function userToBack(){
+  $scope.userToBack = function(){
+    console.log('Sent to back')
     socket.emit('User to Back', {data: $scope.formData})
-  }
+  };
   /*$http({method: "POST", url: "/addUser", data: userInfo})
       .success(function(data) {
         console.log($scope.formData);
@@ -83,6 +93,28 @@ user.controller("userController", ['$scope', 'socket', '$http', function($scope,
       .error(function(data) {
         console.log(data);
       });
+  };
+
+  $scope.insertUserDoc = function() {
+    var id = generateGuid();
+    $scope.formData.userID = id;
+    $scope.globalvar.currentUserID = id;
+    $http({method:"POST", url: "/api/insertUserDoc", data: $scope.formData})
+      .success(function(data) {
+        console.log('userDoc sent to db');
+      })
+      .error(function(data) {
+        console.log("fuck my balls userDoc failed");
+      });
+    check = $interval(function() {
+    $http({method:"GET", url: "/api/checkHelpOnWay", params: $scope.globalvar})
+      .success(function(data) {
+        console.log('dataBool: ' + data);
+      })
+      .error(function(data) {
+        console.log(data);
+      });
+    } , 1500);
   };
 
   $scope.getLocation = function() {

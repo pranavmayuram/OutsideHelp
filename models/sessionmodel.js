@@ -1,4 +1,4 @@
-var uuid 				= require("uuid");
+//var uuid 				= require("uuid");
 var forge 				= require("node-forge");
 var bucket				= require("../app").bucket;
 var bucketName			= require("../config").couchbase.bucket;

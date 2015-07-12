@@ -1,33 +1,33 @@
-var uuid 			= require("uuid");
-var forge 			= require("node-forge");
-var bucket			= require("../app").bucket;
-var bucketName		= require("../config").bucket;
-var N1qlQuery 		= require('couchbase').N1qlQuery;
+//var uuid            = require("uuid");
+var forge           = require("node-forge");
+var bucket          = require("../app").bucket;
+var bucketName      = require("../config").bucket;
+var N1qlQuery       = require('couchbase').N1qlQuery;
 
 function Admin() { };
 
-Admin.searchByEmail = function (params, callback) {
-	var searchUsers = N1qlQuery.fromString('SELECT * FROM ' + bucketName + ' WHERE LOWER(login.email) LIKE LOWER(\"%' + params.email + '%\")');
-	console.log("searchByEmail: " + searchUsers);
-	bucket.query(searchUsers, function (err, result) {
-		if (err) {
-    		callback(err, null);
-    		return;
-    	}
-    	callback(null, result);
-	});
+Admin.searchAdminsByEmail = function (params, callback) {
+    var searchUsers = N1qlQuery.fromString('SELECT * FROM ' + bucketName + ' WHERE LOWER(email) LIKE LOWER(\"%' + params.email + '%\") AND type=\"admin\"');
+    console.log("searchByEmail: " + searchUsers);
+    bucket.query(searchUsers, function (err, result) {
+        if (err) {
+            callback(err, null);
+            return;
+        }
+        callback(null, result);
+    });
 };
 
 Admin.validatePassword = function(rawPassword, hashedPassword) {
     if (forge.md.sha1.create().update(rawPassword).digest().toHex() === hashedPassword) {
-    	return true;
+        return true;
     }
     else {
-    	return false;
+        return false;
     }
 };
 
-Admin.calculateDistance = function distance(lat1, lon1, lat2, lon2, unit) {
+Admin.calculateDistance = function(lat1, lon1, lat2, lon2, unit) {
     var radlat1 = Math.PI * lat1/180;
     var radlat2 = Math.PI * lat2/180;
     var radlon1 = Math.PI * lon1/180;
@@ -42,4 +42,4 @@ Admin.calculateDistance = function distance(lat1, lon1, lat2, lon2, unit) {
     if (unit=="N") { dist = dist * 0.8684 };
     if (unit=="F") { dist = dist/5280};
     return dist;
-}
+};
