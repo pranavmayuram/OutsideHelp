@@ -39,15 +39,15 @@ user.factory('socket', ['$rootScope', function ($rootScope) {
   };
 }]);
 
-user.controller("userController", ['$scope', 'socket', function($scope, socket, $http) {
-    var th = this;
-    $scope.formData={text:"hello"};
-    $scope.loginData={};
-    $scope.image={};
-    $scope.helpData={};
-    $scope.weatherData=[];
+user.controller("userController", ['$scope', 'socket', '$http', function($scope, socket, $http) {
+  var th = this;
+  $scope.formData={text:"hello"};
+  $scope.loginData={};
+  $scope.image={};
+  $scope.helpData={};
+  $scope.weatherData=[];
 
-    socket.on('connection', function(socket){
+  socket.on('connection', function(socket){
 	console.log('a user connected');
 
 	socket.on('disconnect', function(){
@@ -60,21 +60,44 @@ user.controller("userController", ['$scope', 'socket', function($scope, socket, 
 	$scope.weatherData = weather;
     });
 
-    var x = document.getElementById("demo");
+  /*$http({method: "POST", url: "/addUser", data: userInfo})
+      .success(function(data) {
+        console.log($scope.formData);
+        $scope.formData={};
+        $scope.yesRegister="";
+        $scope.create=data;
+        console.log(data);
+        console.log("SUCCESS!");
+      })
+      .error(function(data) {
+        console.log('PROBLEM!');
+        console.log('Error: ' + data);
+      }); */
 
-    $scope.getLocation = function() {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position){
-          $scope.$apply(function(){
-            $scope.formData.latitude = position.coords.latitude;
-            $scope.formData.longitude = position.coords.longitude;
-          });
+  $scope.getWeather = function() {
+    $http({method:"GET", url: "/api/getWeather"})
+      .success(function(data) {
+        console.log(JSON.stringify(data));
+        // $scope.weather = JSON.stringify(data);
+      })
+      .error(function(data) {
+        console.log(data);
+      });
+  };
+
+  $scope.getLocation = function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position){
+        $scope.$apply(function(){
+          $scope.formData.latitude = position.coords.latitude;
+          $scope.formData.longitude = position.coords.longitude;
         });
-      }
-      else {
-        $scope.position = "no position available, browser does not support";
-      }
-    };
+      });
+    }
+    else {
+      $scope.position = "no position available, browser does not support";
+    }
+  };
 
     /*$scope.getLocation = function() {
       if (navigator.geolocation) {

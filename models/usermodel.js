@@ -20,8 +20,8 @@ User.create = function(params, callback) {
         },
         hasPicture: false,
 	    timeTracker: {
-	        registerTime: currentTime,
-	        loginTimes: [currentTime]
+	        postTime: currentTime,
+	        latestUpdate: [currentTime]
     	}
     };
     if (params.picture) {
@@ -40,4 +40,3 @@ User.create = function(params, callback) {
     	callback(null, result);
     });
 };
-

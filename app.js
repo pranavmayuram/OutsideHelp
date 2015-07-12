@@ -34,6 +34,14 @@ app.use(multer({dest: './uploads/',
 	}
 }));
 
+io.on('connection', function(socket){
+	console.log('a user connected: '+ socket.id);
+	socket.on('disconnect', function(){
+		console.log( socket.id + ' has disconnected.' + socket.id)
+	});
+
+});
+
 var cluster = new couchbase.Cluster(config.couchbase.server);
 module.exports.bucket = cluster.openBucket(config.couchbase.bucket);
 
