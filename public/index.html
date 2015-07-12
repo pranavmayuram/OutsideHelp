@@ -55,8 +55,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="material.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/material.css">
+    <link rel="stylesheet" href="css/styles.css">
     <style>
     #view-source {
       position: fixed;
@@ -69,7 +69,7 @@
     }
     </style>
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController">
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
         <div class="mdl-layout--large-screen-only mdl-layout__header-row">
@@ -103,26 +103,38 @@
           </section>
         </div>
         <div class="mdl-layout__tab-panel is-active" id="overview">
-          <span>{{formData}}<span>
+        <span>{{formData}}</span>
           <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
             <div class="mdl-card mdl-cell mdl-cell--12-col">
               <div class="mdl-card__supporting-text">
-                <h4>Fill out a form</h4>
+                <h4>Get Medical Help Now</h4>
               </div>
 
             <form action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
-                <label class="mdl-textfield__label" for="name">Name...</label>
+                <input class="mdl-textfield__input" type="text" id="name" />
+                <label class="mdl-textfield__label" for="name">Name</label>
               </div>
             </form>
 
-            <select ng-model="formData.injuryType">
-              <option value="injurya">Injury A</option>
-              <option value="injuryb">Injury B</option>
-              <option value="injuryc">Injury C</option>
-              <option value="injuryd">Misc.</option>
-            </select>
+            <div class="title">
+                <h0>Injury Type:</h0>
+            </div>
+
+            <div>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked ng-model="formData.injuryType" />
+                <span class="mdl-radio__label">Injury A</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" ng-model="formData.injuryType" />
+                <span class="mdl-radio__label">Injury B</span>
+              </label>
+              <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                <input type="radio" id="option-3" class="mdl-radio__button" name="options" value="3" ng-model="formData.injuryType" />
+                <span class="mdl-radio__label">Misc</span>
+              </label>
+            </div>
 
             <div class="mdl-textfield mdl-textfield--floating-label mdl-js-textfield">
               <textarea class="mdl-textfield__input" type="text" rows="3" maxrows="10"
@@ -130,7 +142,7 @@
               <label class="mdl-textfield__label" for="schools">Additional Info.</label>
             </div>
 
-            <button onclick="getLocation()">Get Location (Requires Permissions)</button>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" onclick = "getLocation()">Get Location (Requires Permissions)</button>
             <p id="demo"></p>
             <script>
             var x = document.getElementById("demo");
@@ -143,22 +155,24 @@
                 }
                 
             function showPosition(position) {
-                x.innerHTML="Latitude: " + position.coords.latitude + 
-                "<br>Longitude: " + position.coords.longitude;  
-                $scope.formData.latitude= position.coords.latitude;
-                $scope.formData.longitude = position.coords.longitude; 
+                x.innerHTML="Stay put! RockMedicine will meet you at latitude: " + position.coords.latitude + 
+                " and longitude: " + position.coords.longitude;  
             }
             </script>
             <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick = "submitInfo()">
               Submit
-            </a>
+            </button>
+
+            <script>
+            function submitInfo() {
+              alert("Submitted! Stay put!")
+              location.reload()
+            }
+            </script>
 
 
           </div>
-
-
-
             </div>
           </section>
 
@@ -166,7 +180,7 @@
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">
             <div class="mdl-logo">
-              Made for OutsideHacks15
+              Made for OutsideHacks '15
             </div>
           </div>
         </footer>
