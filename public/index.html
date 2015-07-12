@@ -113,34 +113,26 @@
 
             <form action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" type="text" id="name" ng-model="formData.name"/>
+                <input class="mdl-textfield__input" type="text" id="name" ng-model="loginData.email"/>
                 <label class="mdl-textfield__label" for="name">Username</label>
               </div>
             </form>
 
             <form action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-                <input class="mdl-textfield__input" type="password" id="name" ng-model="formData.name"/>
+                <input class="mdl-textfield__input" type="password" id="name" ng-model="loginData.password"/>
                 <label class="mdl-textfield__label" for="name">Password</label>
               </div>
             </form>
 
             <div class="mdl-card__actions mdl-card--border">
-              <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick = "loggingIn()">
+              <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "checkAdminLogin()">
                 Log in
               </button>
             </div>
           </section>
 
         </section>
-
-        <script>
-          function loggingIn() {
-            alert("Logging in...")
-            window.open("portal.html","_self")
-          }
-        </script>
-
 
         <div class="mdl-layout__tab-panel is-active" id="overview">
           <div class="mdl-cell mdl-cell--12-col">

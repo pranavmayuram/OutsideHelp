@@ -50,8 +50,9 @@ User.checkHelp = function(params, callback) {
             callback(err, null);
             return;
         }
+        //console.log("Result: "+JSON.stringify(result[0].OutsideHelp));
         var helpBool = (result[0].OutsideHelp.helpOnWay);
-        console.log(helpBool);
+        console.log('helpBool: ' + helpBool);
         callback(null, helpBool);
         /*else {
             if(OutsideHelp[0].helpOnWay == true) {

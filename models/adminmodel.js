@@ -7,7 +7,7 @@ var N1qlQuery       = require('couchbase').N1qlQuery;
 function Admin() { };
 
 Admin.searchAdminsByEmail = function (params, callback) {
-    var searchUsers = N1qlQuery.fromString('SELECT * FROM ' + bucketName + ' WHERE LOWER(email) LIKE LOWER(\"%' + params.email + '%\") AND type=\"admin\"');
+    var searchUsers = N1qlQuery.fromString('SELECT * FROM ' + bucketName + ' WHERE LOWER(email) = LOWER(\"' + params.email + '\") AND docType=\"admin\"');
     console.log("searchByEmail: " + searchUsers);
     bucket.query(searchUsers, function (err, result) {
         if (err) {
@@ -18,8 +18,8 @@ Admin.searchAdminsByEmail = function (params, callback) {
     });
 };
 
-Admin.validatePassword = function(rawPassword, hashedPassword) {
-    if (forge.md.sha1.create().update(rawPassword).digest().toHex() === hashedPassword) {
+Admin.validatePassword = function(rawPassword, savedPassword) {
+    if (savedPassword === rawPassword) {
         return true;
     }
     else {
@@ -56,13 +56,13 @@ Admin.getAllUsers = function(callback) {
 
 // params will need the userID selected, the adminID/Name, the 
 Admin.checkOffUser = function(params, callback) {
-    var checkOffUser = N1qlQuery.fromString('UPDATE '+bucketName+' SET helpOnWay = true WHERE userID =\"'+params.userID+'\")';
+    var checkOffUser = N1qlQuery.fromString('UPDATE '+bucketName+' SET helpOnWay = true WHERE userID =\"'+params.userID+'\"');
     bucket.query(checkOffUser, function(error, result) {
         if(error) {
             return callback(error, null);
         }
         var sendMessage = N1qlQuery.fromString('INSERT INTO '+bucketName+' (KEY, VALUE) VALUES(\"'+params.userID+'_respDoc\", '+ JSON.stringify(params)+')');
-        bucket.query(sendMessage, function(error), result {
+        bucket.query(sendMessage, function(error, result) {
             if(error) {
                 return callback(error, null);
             }
