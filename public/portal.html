@@ -20,6 +20,9 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
    <script src="/js/front_end.js"></script>
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -84,10 +87,29 @@
       </header>
       <main class="mdl-layout__content is-active">
         <section class="section--center mdl-grid mdl-shadow--2dp">
-          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+          <table id="myTable" class="table table-hover">
             <thead>
               <tr>
-                <th class="mdl-data-table__cell--non-numeric">Name</th>
+                <th>Name</th>
+                <th>Injury Type</th>
+                <th>Time</th>
+                <th>Help Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="form in listOfForms">
+                <td>{{form.OutsideHelp.name}}</td>
+                <td>{{form.OutsideHelp.injuryType}}</td>
+                <td>{{form.OutsideHelp.timeTracker.postTime}}</td>
+                <td><a class="btn btn-default actionButton"
+                  ng-click="printID('hello')"> Print ID </a></td>
+                <td hidden name="id">{{form.OutsideHelp.userID}}</td>
+            </tbody>
+          </table>
+          <!--<table class="mdl-data-table mdl-js-data-table mdl-data-tableselectable mdl-shadow2dp">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cellnon-numeric">Name</th>
                 <th>Injury Type</th>
                 <th>Description</th>
                 <th>Distance</th>
@@ -95,20 +117,20 @@
             </thead>
             <tbody>
               <tr ng-repeat="form in listOfForms">
-                <td class="mdl-data-table__cell--non-numeric">Pranav Mayuram</td>
+                <td class="mdl-data-table__cellnon-numeric">Pranav Mayuram</td>
                 <td>Drug Related</td>
                 <td>MARIJUANA</td>
                 <td>657 ft</td>
-               <!-- <td>{{form.</td> -->
+               <td>{{form.</td>
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--non-numeric">David Kong</td>
+                <td class="mdl-data-table__cellnon-numeric">David Kong</td>
                 <td>General First Aid</td>
                 <td>need band aids</td>
                 <td>697 ft</td>
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--non-numeric">Michael Mattheakis</td>
+                <td class="mdl-data-table__cellnon-numeric">Michael Mattheakis</td>
                 <td>Alcohol Related</td>
                 <td>had too much to drink lost my wallet</td>
                 <td>835 ft</td>
@@ -116,26 +138,26 @@
 
               </tr>
               <tr ng-repeat="form in listOfForms">
-                <td class="mdl-data-table__cell--non-numeric">Pdmemdl Lemjkq</td>
+                <td class="mdl-data-table__cellnon-numeric">Pdmemdl Lemjkq</td>
                 <td>Alcohol Related</td>
                 <td>Aekn Skrn Den nen de Engkd!</td>
                 <td>1058 ft</td>
-               <!-- <td>{{form.</td> -->
+               <td>{{form.</td>
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--non-numeric">Stephanie Jones</td>
+                <td class="mdl-data-table__cellnon-numeric">Stephanie Jones</td>
                 <td>General First Aid</td>
                 <td>bad bug bite</td>
                 <td>1295 ft</td>
               </tr>
               <tr>
-                <td class="mdl-data-table__cell--non-numeric">Henry Smith</td>
+                <td class="mdl-data-table__cellnon-numeric">Henry Smith</td>
                 <td>Drug Related</td>
                 <td>My friend is loopy + uncoordinated</td>
                 <td>1495 ft</td>
               </tr>
             </tbody>
-          </table>
+          </table>-->
         </div>
         </section>
 

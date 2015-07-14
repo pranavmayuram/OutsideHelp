@@ -191,6 +191,10 @@ user.controller("userController", ['$scope', '$http', '$interval', function($sco
     }
   };
 
+  $scope.printID = function(someID) {
+    console.log(someID);
+  };
+
   /*$('help_form').onclick=function(){
      socket.emit('Form back', $scope.formData);
      $('#m').val('');

@@ -59,7 +59,7 @@ var appRouter = function(app, io) {
 			}
 			else {
 				for (i=0; i<result.length; i ++) {
-					result[i].OutsideHelp.distance = Admin.calculateDistance(params.latitude, params.longitude, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude, 'M');
+					result[i].OutsideHelp.distance = Admin.calculateDistance(37.3992711, -122.10791359999999, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude, 'M');
 				}
 			}
 			res.json(result);
