@@ -59,8 +59,8 @@ var appRouter = function(app, io) {
 			}
 			else {
 				for (i=0; i<result.length; i ++) {
-					result[i].OutsideHelp.distance = Admin.calculateDistance(37.3992711, -122.10791359999999, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude, 'M');
-				}
+					result[i].OutsideHelp.distance = Admin.calculateDistance(37.3992711, -122.10791359999999, 37.738888, -122.437464);
+				}	// result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude
 			}
 			res.json(result);
 		});

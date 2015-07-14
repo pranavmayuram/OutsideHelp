@@ -93,14 +93,16 @@
                 <th>Name</th>
                 <th>Injury Type</th>
                 <th>Time</th>
+                <th>Distance</th>
                 <th>Help Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="form in listOfForms">
+              <tr ng-repeat="form in listOfForms | orderBy:'time'">
                 <td>{{form.OutsideHelp.name}}</td>
                 <td>{{form.OutsideHelp.injuryType}}</td>
                 <td>{{form.OutsideHelp.timeTracker.postTime}}</td>
+                <td>{{form.OutsideHelp.distance}}</td>
                 <td><a class="btn btn-default actionButton"
                   ng-click="printID('hello')"> Print ID </a></td>
                 <td hidden name="id">{{form.OutsideHelp.userID}}</td>
