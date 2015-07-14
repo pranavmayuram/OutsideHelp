@@ -20,7 +20,6 @@
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
-   <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
    <script src="/js/front_end.js"></script>
    <script src="../../material.min.js"></script>
   <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.indigo-pink.min.css">
@@ -69,7 +68,7 @@
   }
   </style>
   </head>
-  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController" ng-init="getLocation()">
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base" ng-app="user" ng-controller="userController" ng-init="getLocation(); getWeather();">
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
@@ -96,7 +95,7 @@
               <br></br>
               Whenever you're not feeling well, get some free and friendly OutsideHelp.
               <br></br>
-              OutsideHelp was built at OutsideHacks 2015. It makes use of the Weather Underground API, Socket.io, Angular.js, Node.js, CouchDB, and Google Material Design Lite
+              OutsideHelp was built at OutsideHacks 2015. It makes use of the Weather Underground API, Angular.js, Node.js, CouchDB, and Google Material Design Lite
             </div>
           </section>
         </div>
@@ -192,9 +191,10 @@
                 <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "insertUserDoc()">
                   Submit
                 </button>
-                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click = "getWeather()">
-                  Weather Me
+                <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" onclick = "openMap()">
+                  Map Me
                 </button>
+                <script type="text/javascript"> function openMap () {window.open("googmap.html","_self");} </script>
               </div>
 
             </div>

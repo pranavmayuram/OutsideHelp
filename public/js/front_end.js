@@ -14,8 +14,8 @@ var generateGuid = function () {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 };
 
-user.factory('socket', ['$rootScope', function ($rootScope) {
-  var socket = io.connect();
+/*user.factory('socket', ['$rootScope', function ($rootScope) {
+  //var socket = io.connect();
 
   return {
     on: function (eventName, callback) {
@@ -44,35 +44,33 @@ user.factory('socket', ['$rootScope', function ($rootScope) {
       });
     }
   };
-}]);
+}]); */
 
-user.controller("userController", ['$scope', 'socket', '$http', '$interval', function($scope, socket, $http, $interval) {
+user.controller("userController", ['$scope', '$http', '$interval', function($scope, $http, $interval) {
   var th = this;
   $scope.formData={};
   $scope.loginData={};
   $scope.image={};
   $scope.helpData={};
-  $scope.weatherData=[];
+  $scope.weatherData={};
   $scope.globalvar={};
   $scope.listOfForms={};
-  $scope.Admincoordinates={};
-  $scope.coordinates={};
 
-  socket.on('connection', function(socket){
+  /*socket.on('connection', function(socket){
     socket.emit('test', {data: "this is a test"});
      console.log('a user connected');
 
   socket.on('disconnect', function(){
       console.log('user disconnected');
   });
-    });
+    }); */
     
     //insert socket here
   
-  $scope.userToBack = function(){
+  /*$scope.userToBack = function(){
     console.log('Sent to back')
     socket.emit('User to Back', {data: $scope.formData})
-  };
+  }; */
   /*$http({method: "POST", url: "/addUser", data: userInfo})
       .success(function(data) {
         console.log($scope.formData);
@@ -91,6 +89,7 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     $http({method:"GET", url: "/api/getWeather"})
       .success(function(data) {
         console.log(JSON.stringify(data));
+        $scope.weatherData = data;
         // $scope.weather = JSON.stringify(data);
       })
       .error(function(data) {
@@ -114,10 +113,6 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     $http({method:"GET", url: "/api/checkHelpOnWay", params: $scope.globalvar})
       .success(function(data) {
         console.log('dataBool: ' + data);
-        if (data === true) {
-          alert('Sit tight, a volunteer is on their way to help you!');
-          $interval.cancel(check);
-        }
       })
       .error(function(data) {
         console.log(data);
@@ -126,9 +121,7 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
   };
 
   $scope.getAllUsers = function(){
-    $scope.coordinates.latitude= 37.782156690897416;
-    $scope.coordinates.longitude= -122.39508871505272;
-   $http({method:"GET", url: "/api/admin_getAllUsers", params: $scope.coordinates})
+    $http({method:"GET", url: "/api/admin_getAllUsers", params: $scope.Admincoordinates})
       .success(function(data) {
         console.log('List of Users: ' + data);
         $scope.listOfForms = data;
@@ -171,20 +164,6 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
     }
   };
 
-  $scope.getLocationAdmin = function() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position){
-        $scope.$apply(function(){
-          $scope.Admincoordinates.latitude = position.coords.latitude;
-          $scope.Admincoordinates.longitude = position.coords.longitude;
-        });
-      });
-    }
-    else {
-      $scope.position = "no position available, browser does not support";
-    }
-  };
-
     /*$scope.getLocation = function() {
       if (navigator.geolocation) {
           navigator.geolocation.watchPosition(showPosition);
@@ -198,11 +177,19 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
       $scope.formData.longitude = position.coords.longitude;
      } */
 
-    /*window.onload = function() {
+    window.onload = function() {
       //$scope.showPosition();
       $scope.getLocation();
-      $scope.getLocationAdmin();
-    };*/
+    };
+
+  $scope.showWeather = function() {
+    if ($scope.weatherData) {
+      console.log(JSON.stringify($scope.weatherData));
+    }
+    else {
+      console.log("balls");
+    }
+  };
 
   /*$('help_form').onclick=function(){
      socket.emit('Form back', $scope.formData);
@@ -211,7 +198,7 @@ user.controller("userController", ['$scope', 'socket', '$http', '$interval', fun
   }*/
 }]);      
 
-admin.factory('socket', ['$rootScope', function ($rootScope) {
+/*admin.factory('socket', ['$rootScope', function ($rootScope) {
   var socket = io.connect();
 
   return {
@@ -241,7 +228,7 @@ admin.factory('socket', ['$rootScope', function ($rootScope) {
       });
     }
   };
-}]);
+}]); */
 
 /*admin.controller("userController", ['$scope', 'socket', function($scope, $http) {
     var th = this;

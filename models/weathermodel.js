@@ -58,9 +58,10 @@ Weather.receive = function(callback) {
     	weatherObj.temp = response.current_observation.temp_f;								// ex: 66.0
     	weatherObj.wind = response.current_observation.wind_mph;							// ex: 22.0
     	weatherObj.precip = response.current_observation.precip_1hr_in;						// ex: 0.00
-    	weatherObj.feelsLike = response.current_observation.feelsslike_f;					// ex: 66.9			
+    	weatherObj.feelsLike = response.current_observation.feelslike_f;					// ex: 66.9			
     	weatherObj.humidity = response.current_observation.relative_humidity; 				// ex: 65%			if over 80 say something, if below 30, say something
     	currentWeather = response.current_observation;
+    	weatherObj.icon = response.current_observation.icon_url;
     	assignWeather();
 	});
 };
