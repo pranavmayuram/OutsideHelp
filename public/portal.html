@@ -23,6 +23,7 @@
    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
    <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
    <script src="/js/front_end.js"></script>
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
@@ -84,6 +85,19 @@
           <a href="#back" class="mdl-layout__tab">Logout</a>
         </div>
 
+        <script type="text/ng-template" id="myModalContent.html">
+            <div class="modal-header">
+                <h3>The Customer Name is: {{ form.OutsideHelp.name }}</h3>
+            </div>
+            <div class="modal-body">
+                    This is where the Customer Details Goes<br />
+                    {{ form.OutsideHelp.description }}
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </script>
+
       </header>
       <main class="mdl-layout__content is-active">
         <section class="section--center mdl-grid mdl-shadow--2dp">
@@ -98,13 +112,13 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="form in listOfForms | orderBy:'time'">
+              <tr ng-repeat="form in listOfForms | orderBy:'-OutsideHelp.time'">
                 <td>{{form.OutsideHelp.name}}</td>
                 <td>{{form.OutsideHelp.injuryType}}</td>
                 <td>{{form.OutsideHelp.timeTracker.postTime}}</td>
                 <td>{{form.OutsideHelp.distance}}</td>
                 <td><a class="btn btn-default actionButton"
-                  ng-click="printID('hello')"> Print ID </a></td>
+                  ng-click="open(form)"> Full Details </a></td>
                 <td hidden name="id">{{form.OutsideHelp.userID}}</td>
             </tbody>
           </table>

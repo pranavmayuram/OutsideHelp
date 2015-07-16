@@ -77,4 +77,4 @@ io.on('User to Back', function(form){
 // startup our app at http://localhost:3000              
 
 // inform user of IP                     
-console.log('View Touchbase at localhost:' + config.couchbase.port);
+console.log('View OutsideHelp at localhost:' + config.couchbase.port);

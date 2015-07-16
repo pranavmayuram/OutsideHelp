@@ -4,7 +4,7 @@
 //var http = require('http').Server(app);
 //var io = require('socket.io')(http);
 
-var user = angular.module('user', []);
+var user = angular.module('user', ['ui.bootstrap']);
 var admin = angular.module('admin', []);
 
 var generateGuid = function () {
@@ -45,8 +45,13 @@ var generateGuid = function () {
     }
   };
 }]); */
+user.controller('ModalInstanceCtrl', ['$modal', function ($scope, $modalInstance, form)
+  {
+  $scope.form = form;
 
-user.controller("userController", ['$scope', '$http', '$interval', function($scope, $http, $interval) {
+  }]);
+
+user.controller("userController", ['$scope', '$http', '$interval', '$modal', function($scope, $http, $interval, $modal) {
   var th = this;
   $scope.formData={};
   $scope.loginData={};
@@ -194,6 +199,24 @@ user.controller("userController", ['$scope', '$http', '$interval', function($sco
   $scope.printID = function(someID) {
     console.log(someID);
   };
+
+    var app = angular.module('app', ['ui.bootstrap']);
+
+  $scope.open = function (_form) {
+
+    var modalInstance = $modal.open({
+      controller: "ModalInstanceCtrl",
+      templateUrl: 'myModalContent.html',
+        resolve: {
+            form: function()
+            {
+                return _form;
+            }
+        }
+    });
+
+  };
+
 
   /*$('help_form').onclick=function(){
      socket.emit('Form back', $scope.formData);
