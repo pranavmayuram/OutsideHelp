@@ -22,7 +22,8 @@ User.create = function(params, callback) {
 	    timeTracker: {
 	        postTime: currentTime,
 	        latestUpdate: [currentTime]
-    	}
+    	},
+        description: params.description
     };
     if (params.picture) {
     	userDoc.login.hasPicture = true;
