@@ -98,8 +98,11 @@
                     <iframe width="200" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=37.399547%2C%20-122.10752269999999&key=AIzaSyBzZNDIqiU1CdSmVDOmiWcRhlOaD75f5ZE" allowfullscreen></iframe>
             </div>
             <div class="modal-footer">
-
+                <button class="btn btn-primary" ng-click="ok(form)"> Not Now </button>
+                <button class="btn btn-success" onclick = "openMap()"> I Will Help </button>
             </div>
+            <script type="text/javascript">
+            <script>
         </script>
 
       </header>
@@ -110,8 +113,8 @@
               <tr>
                 <th>Name</th>
                 <th>Injury Type</th>
-                <th>Time</th>
-                <th>Distance</th>
+                <!--<th>Time</th>
+                <th>Distance</th>-->
                 <th>Help Action</th>
               </tr>
             </thead>
@@ -119,24 +122,16 @@
               <tr ng-repeat="form in listOfForms | orderBy:'OutsideHelp.name'">
                 <td>{{form.OutsideHelp.name}}</td>
                 <td>{{form.OutsideHelp.injuryType}}</td>
-                <td>{{form.OutsideHelp.timeTracker.postTime}}</td>
-                <td>{{form.OutsideHelp.distance}}</td>
-                <td><a class="btn btn-default actionButton"
+                <!--<td>{{form.OutsideHelp.timeTracker.postTime}}</td>
+                <td>{{form.OutsideHelp.distance}}</td>-->
+                <td><a class="btn btn-primary actionButton"
                   ng-click="open(form)"> Full Details </a></td>
                 <td hidden name="id">{{form.OutsideHelp.userID}}</td>
             </tbody>
           </table>
         </div>
         </section>
-
-
-
-        <script>
-        function openModel()
-        {
-
-        }
-        </script>
+        <script type="text/javascript"> function openMap () {window.open("googmap.html","_self");} </script>
 
         <footer class="mdl-mega-footer">
           <div class="mdl-mega-footer--bottom-section">

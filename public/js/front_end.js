@@ -12,7 +12,10 @@ user.controller('ModalInstanceCtrl', function ($scope, $modalInstance, form)
   {
   $scope.form = form;
 
-  });
+  $scope.ok = function(form) {
+    $modalInstance.close($scope.form);
+  };
+});
 
 user.controller("userController", ['$scope', '$http', '$interval', '$modal', function($scope, $http, $interval, $modal) {
   var th = this;
