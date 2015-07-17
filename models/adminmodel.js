@@ -41,7 +41,7 @@ Admin.calculateDistance = function (lat1,lon1,lat2,lon2) {
     ; 
   var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
   var d = R * c * 0.621371; // Distance in km
-  return d;
+  return d.toFixed(2);
 };
 
 Admin.getAllUsers = function(callback) {

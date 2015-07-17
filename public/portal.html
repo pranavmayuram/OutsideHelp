@@ -87,11 +87,15 @@
 
         <script type="text/ng-template" id="myModalContent.html">
             <div class="modal-header">
-                <h3>The Customer Name is: {{ form.OutsideHelp.name }}</h3>
+                <img name="img01" src="logo.png" height="60" style = "float:left"></a>
+                <h4 style="float:center">{{ form.OutsideHelp.name }}</h4>
             </div>
             <div class="modal-body">
-                    This is where the Customer Details Goes<br />
-                    {{ form.OutsideHelp.description }}
+                    <p><strong> Description: </strong> {{ form.OutsideHelp.description }}</p>
+                    <p><strong> Injury Type: </strong> {{ form.OutsideHelp.injuryType }}</p>
+                    <p><strong> Time Since Posted: </strong> {{ form.OutsideHelp.timeTracker.postTime }}</p>
+                    <p><strong> Distance </strong> {{ form.OutsideHelp.distance }}</p>
+                    <iframe width="200" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=37.399547%2C%20-122.10752269999999&key=AIzaSyBzZNDIqiU1CdSmVDOmiWcRhlOaD75f5ZE" allowfullscreen></iframe>
             </div>
             <div class="modal-footer">
 
@@ -112,7 +116,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="form in listOfForms | orderBy:'-OutsideHelp.time'">
+              <tr ng-repeat="form in listOfForms | orderBy:'OutsideHelp.name'">
                 <td>{{form.OutsideHelp.name}}</td>
                 <td>{{form.OutsideHelp.injuryType}}</td>
                 <td>{{form.OutsideHelp.timeTracker.postTime}}</td>
