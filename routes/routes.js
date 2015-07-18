@@ -53,13 +53,15 @@ var appRouter = function(app, io) {
 	});
 
 	app.get('/api/admin_getAllUsers', function(req, res) {
+		console.log(req.query);
 		Admin.getAllUsers (function(err, result) {
 			if(err) {
 				return res.status(400).send(error);
 			}
 			else {
 				for (i=0; i<result.length; i ++) {
-					result[i].OutsideHelp.distance = Admin.calculateDistance(37.3992711, -122.10791359999999, 37.738888, -122.437464);
+					console.log(result[i].OutsideHelp.location.latitude + ", " + result[i].OutsideHelp.location.longitude);
+					result[i].OutsideHelp.distance = Admin.calculateDistance(req.query.latitude, req.query.longitude, result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.longitude);
 				}	// result[i].OutsideHelp.location.latitude, result[i].OutsideHelp.location.latitude
 			}
 			res.json(result);

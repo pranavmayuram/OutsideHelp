@@ -63,15 +63,41 @@ user.controller("userController", ['$scope', '$http', '$interval', '$modal', fun
   };
 
   $scope.getAllUsers = function(){
-    $http({method:"GET", url: "/api/admin_getAllUsers", params: $scope.Admincoordinates})
-      .success(function(data) {
-        console.log('List of Users: ' + data);
-        $scope.listOfForms = data;
-      })
-      .error(function(data) {
-        console.log(data);
+    //function getCoordinates(callback) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          var returnValue = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          }
+          $http({method:"GET", url: "/api/admin_getAllUsers", params: returnValue})
+            .success(function(data) {
+              console.log('List of Users: ' + data);
+              $scope.listOfForms = data;
+            })
+            .error(function(data) {
+              console.log(data);
+            });
       });
+    //}
   };
+
+  function updateCoordinate(callback) {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        var returnValue = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        }
+        var serializeCookie = serialize(returnValue);
+        $.cookie('geolocation', serializeCookie);
+
+        // and here you call the callback with whatever
+        // data you need to return as a parameter.
+        callback(serializeCookie);
+      }
+    )
+}
 
   $scope.checkAdminLogin = function() {
     //$scope.loginData={"email": "charu.dwivedi@outsidelands.com", "password": "password"};
