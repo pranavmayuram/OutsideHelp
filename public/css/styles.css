@@ -53,7 +53,7 @@ html, body {
 .mdl-demo .mdl-layout__tab-bar {
   padding: 0;
   padding-left: 16px;
-  height: 100%;
+  height: 130%;
   width: 100%;
   box-sizing: border-box;
   background-color: #FFEDD8;
@@ -66,8 +66,6 @@ html, body {
   background-color: white;
   height: 4px;
 }
-
-
 
 .mdl-demo main > .mdl-layout__tab-panel {
   padding: 8px;
@@ -234,7 +232,7 @@ html, body {
   margin-bottom: 24px;
 }
 .mdl-demo .mdl-layout__tab-panel:not(#overview) {
-  background-color: white;
+
 }
 .mdl-demo #features section {
   margin-bottom: 72px;
@@ -294,16 +292,23 @@ html, body {
 }
 
 .mdl-mega-footer {
-/*    position: fixed;
+    position: fixed;
     z-index: 100; 
     bottom: 0; 
     left: 0;
-    width: 100%;*/
+    width: 100%;
     background-color:#4B212F;
+    padding-top:1px;
+    padding-bottom:3px;
+}
+
+.mdl-mega-footer--bottom-section {
+  padding-bottom: -5px;
 }
 
 h4 {
   text-align: center;
+  font-size: 30px;
 }
 
 .subtext {
@@ -340,4 +345,8 @@ img.center {
 
 .mdl-layout__content {
   background-color: #FFEDD8;
+}
+
+p {
+  font-size:20px;
 }
